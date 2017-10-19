@@ -10,10 +10,10 @@
         </li>
       </ol>
       <div class="nav">
-        <router-link v-if="listStart !== 1" to="{ path: '/' + this.props.storiesType, params: { page: this.props.page - 1 }}" class="prev">
+        <router-link v-if="listStart !== 1" :to="{ path: '/' + this.props.storiesType, params: { page: this.props.page - 1 }}" class="prev">
           ‹ Prev
         </router-link>
-        <router-link v-if="items.length === 30" to="{ path: '/' + this.props.storiesType, params: { page: this.props.page + 1 }}" class="more">
+        <router-link v-if="items.length === 30" :to="{ path: '/' + this.props.storiesType, params: { page: this.props.page + 1 }}" class="more">
           More ›
         </router-link>
       </div>

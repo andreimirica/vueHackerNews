@@ -25,7 +25,7 @@
           <span>
           {{item.time_ago}}
           <span> |
-            <router-link to="{ path: '/item', params: { id: item.id } }">
+            <router-link :to="{ path: '/item', params: { id: item.id } }">
               <span v-if="item.comments_count !== 0">
                 {{item.comments_count}}
                 <span v-if="item.comments_count === 1">comment</span>
