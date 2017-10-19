@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Stories from '@/components/Stories'
-import ItemComments from '@/components/ItemComments'
-import User from '@/components/User'
+const Stories = () => import('@/components/Stories')
+const ItemComments = () => import('@/components/ItemComments')
+const User = () => import('@/components/User')
 
 Vue.use(VueRouter)
 

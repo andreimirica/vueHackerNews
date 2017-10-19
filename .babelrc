@@ -1,4 +1,4 @@
 {
   "presets": ["es2017"],
-  "plugins": ["transform-runtime"]
+  "plugins": ["transform-runtime", "syntax-dynamic-import"]
 }
