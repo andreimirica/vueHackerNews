@@ -7,7 +7,7 @@
   <div v-if="item">
     <div class="item-laptop">
       <p>
-        <a class="title" href="{{item.url}}">
+        <a class="title" :href="item.url">
           {{item.title}}
         </a>
         <span v-if="item.domain" class="domain">({{item.domain}})</span>
