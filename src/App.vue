@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <app-header></app-header>
-    <!--<stories :storiestype="'news'" :page="'1'"></stories>-->
     <router-view></router-view>
     <app-footer></app-footer>
   </div>

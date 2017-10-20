@@ -4,7 +4,7 @@
       Loading...
     </div>
   </div>
-  <div v-if="item">
+  <div v-else-if="item">
     <div class="item-laptop">
       <p>
         <a class="title" :href="item.url">
@@ -20,13 +20,13 @@
         <span>
       {{item.time_ago}}
       <span> |
-         <router-link :to="{ path: '/item' , params: {id: item.id}">
+         <router-link :to="{ path: '/item' , params: {id: item.id} }">
           <span v-if="item.comments_count !== 0">
             {{item.comments_count}}
             <span v-if="item.comments_count === 1">comment</span>
-            <span v-if="item.comments_count > 1">comments</span>
+            <span v-else-if="item.comments_count > 1">comments</span>
           </span>
-          <span v-if="item.comments_count === 0">discuss</span>
+          <span v-else-if="item.comments_count === 0">discuss</span>
         </router-link>
       </span>
     </span>
@@ -41,11 +41,6 @@
   export default {
     name: 'Item',
     props: ['itemid', 'item'],
-    data () {
-      return {
-        item: null
-      }
-    },
     async created () {
       if (this.itemid) {
         const response = await HackerNewsService.fetchItem(this.itemid)

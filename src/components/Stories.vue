@@ -23,9 +23,13 @@
 
 <script>
   import HackerNewsService from '../services/hackernews.service'
+  import Item from '@/components/Item'
   export default {
     name: 'Stories',
     props: ['storiestype', 'page'],
+    components: {
+      Item
+    },
     data () {
       return {
         typeSub: null,
