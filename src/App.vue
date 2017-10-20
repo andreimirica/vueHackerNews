@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <app-header></app-header>
-    <router-view></router-view>
+    <transition mode="out-in">
+      <keep-alive>
+        <router-view :key="$route.fullPath"></router-view>
+      </keep-alive>
+    </transition>
     <app-footer></app-footer>
   </div>
 </template>

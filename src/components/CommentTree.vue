@@ -1,6 +1,6 @@
 <template>
   <ul class="comment-list">
-    <li v-for="comment in commentTree" >
+    <li v-for="comment in commenttree" >
       <comment :comment="comment"></comment>
     </li>
   </ul>
@@ -8,8 +8,12 @@
 </template>
 
 <script>
+  import Comment from '@/components/Comment'
   export default {
     name: 'CommentTree',
+    components: {
+      Comment
+    },
     props: ['commenttree']
   }
 </script>

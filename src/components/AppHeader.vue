@@ -1,28 +1,28 @@
 <template>
   <header>
     <div id="header">
-      <router-link to="/news/1" class="home-link">
+      <router-link to="/news/1" exact class="home-link">
         <img class="logo" src="https://i.imgur.com/J303pQ4.png">
       </router-link>
       <div class="header-text">
         <div class="left">
           <h1 class="name">
-            <router-link to="/news/1" class="app-title">Angular 2 HN</router-link>
+            <router-link to="/news/1" exact class="app-title">Angular 2 HN</router-link>
           </h1>
           <span class="header-nav">
-          <router-link to="/newest/1">new</router-link>
+          <router-link to="/newest/1" exact>new</router-link>
           <span class="divider">
             |
           </span>
-          <router-link to="/show/1">show</router-link>
+          <router-link to="/show/1" exact>show</router-link>
           <span class="divider">
             |
           </span>
-          <router-link to="/ask/1">ask</router-link>
+          <router-link to="/ask/1" exact>ask</router-link>
           <span class="divider">
             |
           </span>
-          <router-link to="/jobs/1">jobs</router-link>
+          <router-link to="/jobs/1" exact>jobs</router-link>
         </span>
         </div>
         <div class="info">

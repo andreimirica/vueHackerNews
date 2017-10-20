@@ -22,14 +22,13 @@
   import HackerNewsService from '../services/hackernews.service'
   export default {
     name: 'User',
-    props: ['id'],
     data () {
       return {
         user: {}
       }
     },
     async created () {
-      const userID = this.props.id
+      const userID = this.$route.params.id
       const response = await HackerNewsService.fetchUser(userID)
       this.user = response.data
     }

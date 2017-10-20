@@ -45,16 +45,19 @@
 
 <script>
   import HackerNewsService from '../services/hackernews.service'
+  import CommentTree from '@/components/CommentTree'
   export default {
     name: 'ItemComments',
-    props: ['id'],
+    components : {
+      CommentTree
+    },
     data () {
       return {
         item: null
       }
     },
     async created () {
-      const itemID = this.id
+      const itemID = this.$route.params.id
       const response = await HackerNewsService.fetchComments(itemID)
       this.item = response.data
     }

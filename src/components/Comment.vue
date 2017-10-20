@@ -1,8 +1,8 @@
 <template>
   <div v-if="!comment.deleted">
     <div class="meta" :class.meta-collapse="collapse">
-      <span class="collapse" @click="collapse = !collapse">[{{collapse ? '+' : '-'}}]</span>
-      <router-link :to="{ path: '/user', params: { id: comment.user } }">{{comment.user}}</router-link>
+      <span class="collapse" @click="collapse = !collapse">{{collapse ? '+' : '-'}}</span>
+      <router-link :to="{ path: `/user/${comment.user}`}">{{comment.user}}</router-link>
       <span class="time">{{comment.time_ago}}</span>
     </div>
     <div class="comment-tree">
@@ -16,7 +16,7 @@
       </div>
     </div>
   </div>
-  <div v-if="comment.deleted">
+  <div v-else-if="comment.deleted">
     <div class="deleted-meta">
       <span class="collapse">[deleted]</span> | Comment Deleted
     </div>

@@ -10,10 +10,10 @@
         </li>
       </ol>
       <div class="nav">
-        <router-link v-if="listStart !== 1" :to="{ path: '/' + this.storiestype, params: { page: this.page - 1 }}" class="prev">
+        <router-link exact v-if="listStart !== 1" :to="{ path: '/news/' + previousPage , props: {storiestype: this.storiestype}}" class="prev">
           ‹ Prev
         </router-link>
-        <router-link v-if="items.length === 30" :to="{ path: '/' + this.storiestype, params: { page: this.page + 1 }}" class="more">
+        <router-link exact v-if="items.length === 30" :to="{ path: '/news/' + nextPage, props: {storiestype: this.storiestype}}" class="more">
           More ›
         </router-link>
       </div>
@@ -26,7 +26,7 @@
   import Item from '@/components/Item'
   export default {
     name: 'Stories',
-    props: ['storiestype', 'page'],
+    props: ['storiestype'],
     components: {
       Item
     },
@@ -37,11 +37,24 @@
         listStart: 1
       }
     },
-    async created () {
-      const response = await HackerNewsService.fetchStories(this.storiestype, this.page)
-      this.items = response.data
-      this.listStart = ((this.page - 1) * 30) + 1
-      window.scrollTo(0, 0)
+    methods: {
+      fetchData: async function() {
+        const response = await HackerNewsService.fetchStories(this.storiestype, this.$route.params.page)
+        this.items = response.data
+        this.listStart = ((this.$route.params.page - 1) * 30) + 1
+        window.scrollTo(0, 0)
+      }
+    },
+    computed: {
+      previousPage: function () {
+        return Number(this.$route.params.page) - 1
+      },
+      nextPage: function () {
+        return Number(this.$route.params.page) + 1
+      }
+    },
+    created () {
+      this.fetchData()
     }
   }
 </script>
