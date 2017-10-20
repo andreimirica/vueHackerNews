@@ -1,7 +1,7 @@
 <template>
   <ul class="comment-list">
     <li v-for="comment in commentTree" >
-      <comment comment="comment"></comment>
+      <comment :comment="comment"></comment>
     </li>
   </ul>
 
@@ -10,7 +10,7 @@
 <script>
   export default {
     name: 'CommentTree',
-    props: ['commentTree']
+    props: ['commenttree']
   }
 </script>
 

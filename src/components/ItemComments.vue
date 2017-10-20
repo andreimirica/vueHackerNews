@@ -38,13 +38,13 @@
         </div>
       </div>
       <p class="subject" v-html="item.content"></p>
-      <comment-tree :commentTree="item.comments"></comment-tree>
+      <comment-tree :commenttree="item.comments"></comment-tree>
     </div>
   </div>
 </template>
 
 <script>
-  const HackerNewsService = () => import('../services/hackernews.service')
+  import HackerNewsService from '../services/hackernews.service'
   export default {
     name: 'ItemComments',
     props: ['id'],
@@ -54,7 +54,7 @@
       }
     },
     async created () {
-      const itemID = this.props.id
+      const itemID = this.id
       const response = await HackerNewsService.fetchComments(itemID)
       this.item = response.data
     }

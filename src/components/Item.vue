@@ -37,18 +37,18 @@
 </template>
 
 <script>
-  const HackerNewsService = () => import('../services/hackernews.service')
+  import HackerNewsService from '../services/hackernews.service'
   export default {
     name: 'Item',
-    props: ['itemID', 'item'],
+    props: ['itemid', 'item'],
     data () {
       return {
         item: null
       }
     },
     async created () {
-      if (this.props.itemID) {
-        const response = await HackerNewsService.fetchItem(this.props.itemID)
+      if (this.itemid) {
+        const response = await HackerNewsService.fetchItem(this.itemid)
         this.item = response.data
       }
     }

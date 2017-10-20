@@ -6,14 +6,14 @@
     <div v-if="items">
       <ol :start="listStart">
         <li v-for="item in items" class="post">
-          <item class="item-block" [item]="item"></item>
+          <item class="item-block" :item="item"></item>
         </li>
       </ol>
       <div class="nav">
-        <router-link v-if="listStart !== 1" :to="{ path: '/' + this.props.storiesType, params: { page: this.props.page - 1 }}" class="prev">
+        <router-link v-if="listStart !== 1" :to="{ path: '/' + this.storiestype, params: { page: this.page - 1 }}" class="prev">
           ‹ Prev
         </router-link>
-        <router-link v-if="items.length === 30" :to="{ path: '/' + this.props.storiesType, params: { page: this.props.page + 1 }}" class="more">
+        <router-link v-if="items.length === 30" :to="{ path: '/' + this.storiestype, params: { page: this.page + 1 }}" class="more">
           More ›
         </router-link>
       </div>
@@ -22,10 +22,10 @@
 </template>
 
 <script>
-  const HackerNewsService = () => import('../services/hackernews.service')
+  import HackerNewsService from '../services/hackernews.service'
   export default {
     name: 'Stories',
-    props: ['storiesType', 'page'],
+    props: ['storiestype', 'page'],
     data () {
       return {
         typeSub: null,
@@ -34,9 +34,9 @@
       }
     },
     async created () {
-      const response = await HackerNewsService.fetchStories(this.props.storiesType, this.props.page)
+      const response = await HackerNewsService.fetchStories(this.storiestype, this.page)
       this.items = response.data
-      this.listStart = ((this.props.page - 1) * 30) + 1
+      this.listStart = ((this.page - 1) * 30) + 1
       window.scrollTo(0, 0)
     }
   }

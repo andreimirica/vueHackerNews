@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <app-header></app-header>
-    <router-view keep-alive></router-view>
+    <!--<stories :storiestype="'news'" :page="'1'"></stories>-->
+    <router-view></router-view>
     <app-footer></app-footer>
   </div>
 </template>
@@ -9,7 +10,7 @@
 <script>
   const AppHeader = () => import('@/components/AppHeader')
   const AppFooter = () => import('@/components/AppFooter')
-export default {
+  export default {
     components: {
       AppHeader,
       AppFooter

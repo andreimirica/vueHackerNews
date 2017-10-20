@@ -19,7 +19,7 @@
 </template>
 
 <script>
-  const HackerNewsService = () => import('../services/hackernews.service')
+  import HackerNewsService from '../services/hackernews.service'
   export default {
     name: 'User',
     props: ['id'],
