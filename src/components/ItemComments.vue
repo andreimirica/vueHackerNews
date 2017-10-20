@@ -44,7 +44,7 @@
 </template>
 
 <script>
-  import HackerNewsService from '../services/hackernews.service'
+  const HackerNewsService = () => import('../services/hackernews.service')
   export default {
     name: 'ItemComments',
     props: ['id'],
