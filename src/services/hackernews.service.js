@@ -5,9 +5,6 @@ export default {
   fetchStories (storyType, page) {
     return axios.get(`${baseUrl}/${storyType}?page=${page}`)
   },
-  fetchItem (id) {
-    return axios.get(`${baseUrl}/item/${id}.json`)
-  },
   fetchComments (id) {
     return axios.get(`${baseUrl}/item/${id}`)
   },

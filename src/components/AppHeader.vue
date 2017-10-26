@@ -7,22 +7,22 @@
       <div class="header-text">
         <div class="left">
           <h1 class="name">
-            <router-link to="/news/1" exact class="app-title">Angular 2 HN</router-link>
+            <router-link to="/news" exact class="app-title">Angular 2 HN</router-link>
           </h1>
           <span class="header-nav">
-          <router-link to="/newest/1" exact>new</router-link>
+          <router-link to="/newest" exact>new</router-link>
           <span class="divider">
             |
           </span>
-          <router-link to="/show/1" exact>show</router-link>
+          <router-link to="/show" exact>show</router-link>
           <span class="divider">
             |
           </span>
-          <router-link to="/ask/1" exact>ask</router-link>
+          <router-link to="/ask" exact>ask</router-link>
           <span class="divider">
             |
           </span>
-          <router-link to="/jobs/1" exact>jobs</router-link>
+          <router-link to="/jobs" exact>jobs</router-link>
         </span>
         </div>
         <div class="info">

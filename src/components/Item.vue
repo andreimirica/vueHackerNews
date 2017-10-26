@@ -40,13 +40,7 @@
   import HackerNewsService from '../services/hackernews.service'
   export default {
     name: 'Item',
-    props: ['itemid', 'item'],
-    async created () {
-      if (this.itemid) {
-        const response = await HackerNewsService.fetchItem(this.itemid)
-        this.item = response.data
-      }
-    }
+    props: ['item']
   }
 </script>
 

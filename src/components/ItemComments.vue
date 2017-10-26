@@ -20,12 +20,12 @@
         <div class="subtext">
         <span>
         {{item.points}} points by
-          <a href="">{{item.user}}</a>
+          <router-link :to="{ path: `/user/${item.user}`}" routerLinkActive="active">{{item.user}}</router-link>
         </span>
           <span>
           {{item.time_ago}}
           <span> |
-            <router-link :to="{ path: '/item', params: { id: item.id } }">
+            <router-link :to="{ path: `/item/${item.id}`}">
               <span v-if="item.comments_count !== 0">
                 {{item.comments_count}}
                 <span v-if="item.comments_count === 1">comment</span>
@@ -51,15 +51,17 @@
     components : {
       CommentTree
     },
-    data () {
-      return {
-        item: null
+    computed : {
+      item () {
+        return this.$store.getters.selectedItem
       }
     },
-    async created () {
+    created () {
       const itemID = this.$route.params.id
-      const response = await HackerNewsService.fetchComments(itemID)
-      this.item = response.data
+      this.$store.dispatch('retrieveComments', {
+        itemID: itemID
+      }).then(() => {
+      })
     }
   }
 </script>

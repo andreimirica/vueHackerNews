@@ -22,15 +22,17 @@
   import HackerNewsService from '../services/hackernews.service'
   export default {
     name: 'User',
-    data () {
-      return {
-        user: {}
+    computed : {
+      user () {
+        return this.$store.getters.selectedUser
       }
     },
-    async created () {
+    created () {
       const userID = this.$route.params.id
-      const response = await HackerNewsService.fetchUser(userID)
-      this.user = response.data
+      this.$store.dispatch('retrieveUser', {
+        userID: userID
+      }).then(() => {
+      })
     }
   }
 </script>
