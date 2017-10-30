@@ -29,11 +29,6 @@
     components: {
       Item
     },
-    data () {
-      return {
-        typeSub: null
-      }
-    },
     methods: {
       fetchData: function(page) {
         this.$store.dispatch('retrieveStories', {
@@ -44,6 +39,12 @@
         })
       }
     },
+    watch: {
+      storiestype (newVal, oldVal) { // watch it
+        this.fetchData()
+      },
+      deep: true
+    },
     computed: {
       previousPage: function () {
         return parseInt(this.$store.state.page) - 1
@@ -52,6 +53,7 @@
         return parseInt(this.$store.state.page) + 1
       },
       stories () {
+        this.$forceUpdate()
         return this.$store.getters.activeStateItems
       },
       listStart () {
