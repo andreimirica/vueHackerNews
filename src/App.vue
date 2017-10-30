@@ -2,9 +2,7 @@
   <div id="app">
     <app-header></app-header>
     <transition mode="out-in">
-      <keep-alive>
-        <router-view :key="$route.fullPath"></router-view>
-      </keep-alive>
+      <router-view :key="$route.fullPath"></router-view>
     </transition>
     <app-footer></app-footer>
   </div>
